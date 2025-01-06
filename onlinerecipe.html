@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Recipe Book</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Basic Styling for Buttons and Smooth Scrolling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #ff6f61;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .recipe img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        #searchBar {
+            margin: 10px 0;
+            padding: 8px;
+            width: 95%;
+            font-size: 16px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .star-rating{
+        display: flex;
+        justify-content: center;
+gap:5px;
+cursor: pointer;
+}
+
+.star{
+font-size:20px;
+color: gold;
+}
+.star.unfilled{
+color: lightgray;
+}
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            background: #ff6f61;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Online Recipe Book</h1>
+        <input type="text" id="searchBar" placeholder="Search for recipes...">
+        <nav>
+            <ul>
+                <li><a href="#breakfast">Breakfast</a></li>
+                <li><a href="#lunch">Lunch</a></li>
+                <li><a href="#dinner">Dinner</a></li>
+                <li><a href="#desserts">Desserts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="breakfast">
+            <h2>Breakfast Recipes</h2>
+            <div class="recipe" data-name="Pancakes">
+                <img src="pancakes.jpg" alt="Pancakes">
+                <h3>Pancakes</h3>
+                <p>Fluffy pancakes made from scratch. <a href="pancakes.html">View Recipe</a></p>
+<!-- Rating System -->
+<div class="star-rating" data-recipe="pancakes">
+<span class="star unfilled" data-star="1">&#9733;</span>
+<span class="star unfilled" data-star="2">&#9733;</span>
+<span class="star unfilled" data-star="3">&#9733;</span>
+<span class="star unfilled" data-star="4">&#9733;</span>
+<span class="star unfilled" data-star="5">&#9733;</span>
+            </div>
+<!--Favorite Button-->
+<button class="favorite-btn">Add to favorites</button>
+</div>
+        </section>
+
+        <section id="lunch">
+            <h2>Lunch Recipes</h2>
+            <div class="recipe" data-name="Pasta">
+                <img src="pasta.jpg" alt="Pasta">
+                <h3>Creamy Pasta</h3>
+                <p>Delicious pasta in a creamy sauce. <a href="pasta.html">View Recipe</a></p>
+<!-- Rating System -->
+<div class="star-rating" data-recipe="pancakes">
+<span class="star unfilled" data-star="1">&#9733;</span>
+<span class="star unfilled" data-star="2">&#9733;</span>
+<span class="star unfilled" data-star="3">&#9733;</span>
+<span class="star unfilled" data-star="4">&#9733;</span>
+<span class="star unfilled" data-star="5">&#9733;</span>
+            </div>
+<!--Favorite Button-->
+<button class="favorite-btn">Add to favorites</button>
+            </div>
+        </section>
+
+        <section id="dinner">
+            <h2>Dinner Recipes</h2>
+            <div class="recipe" data-name="Pizza">
+                <img src="pizza.jpg" alt="Pizza">
+                <h3>Homemade Pizza</h3>
+                <p>Perfectly baked pizza with fresh toppings. <a href="pizza.html">View Recipe</a></p>
+<!-- Rating System -->
+<div class="star-rating" data-recipe="pancakes">
+<span class="star unfilled" data-star="1">&#9733;</span>
+<span class="star unfilled" data-star="2">&#9733;</span>
+<span class="star unfilled" data-star="3">&#9733;</span>
+<span class="star unfilled" data-star="4">&#9733;</span>
+<span class="star unfilled" data-star="5">&#9733;</span>
+            </div>
+<!--Favorite Button-->
+<button class="favorite-btn">Add to favorites</button>
+</div>
+        </section>
+
+        <section id="desserts">
+            <h2>Desserts</h2>
+            <div class="recipe" data-name="Cake">
+                <img src="cake.jpg" alt="Cake">
+                <h3>Chocolate Cake</h3>
+                <p>Rich and moist chocolate cake. <a href="cake.html">View Recipe</a></p>
+<!-- Rating System -->
+<div class="star-rating" data-recipe="pancakes">
+<span class="star unfilled" data-star="1">&#9733;</span>
+<span class="star unfilled" data-star="2">&#9733;</span>
+<span class="star unfilled" data-star="3">&#9733;</span>
+<span class="star unfilled" data-star="4">&#9733;</span>
+<span class="star unfilled" data-star="5">&#9733;</span>
+            </div>
+<!--Favorite Button-->
+<button class="favorite-btn">Add to favorites</button>
+</div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Online Recipe Book. All rights reserved.</p>
+    </footer>
+
+    <button id="backToTop">Back to Top</button>
+
+    <script>
+        // Smooth Scrolling
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Search Functionality
+        const searchBar = document.getElementById('searchBar');
+        searchBar.addEventListener('input', function () {
+            const searchTerm = this.value.toLowerCase();
+            const recipes = document.querySelectorAll('.recipe');
+
+            recipes.forEach(recipe => {
+                const recipeName = recipe.getAttribute('data-name').toLowerCase();
+                if (recipeName.includes(searchTerm)) {
+                    recipe.style.display = '';
+                } else {
+                    recipe.style.display = 'none';
+                }
+            });
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+    </script>
+</body>
+</html>
